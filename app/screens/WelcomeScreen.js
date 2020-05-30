@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  Platform,
+} from "react-native";
 
 import Button from "../components/Button";
 import colors from "../config/colors";
@@ -9,6 +16,7 @@ function WelcomeScreen(props) {
     <ImageBackground
       style={styles.background}
       source={require("../assets/background.jpg")}
+      blurRadius={7}
     >
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source={require("../assets/logo-red.png")} />
