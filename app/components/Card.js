@@ -15,7 +15,7 @@ function Card({ title, subTitle, image }) {
 
 const styles = StyleSheet.create({
   card: {
-    height: 300,
+    height: 400,
     width: "100%",
     backgroundColor: "#fff",
     borderRadius: 25,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   textContainer: {
-    flex: 0.5,
+    flex: 0.3,
     paddingHorizontal: 20,
     justifyContent: "center",
   },
