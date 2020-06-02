@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
 
-import Button from "../components/Button";
+import AppButton from "../components/AppButton";
 import colors from "../config/colors";
 
 function WelcomeScreen(props) {
@@ -16,8 +16,18 @@ function WelcomeScreen(props) {
         <Text style={styles.logoText}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <Button color="primary">LOGIN</Button>
-        <Button color="secondary">REGISTER</Button>
+        <AppButton
+          color="primary"
+          onPress={() => console.log("Login button pressed")}
+        >
+          Login
+        </AppButton>
+        <AppButton
+          color="secondary"
+          onPress={() => console.log("Register button pressed")}
+        >
+          Register
+        </AppButton>
       </View>
     </ImageBackground>
   );
@@ -35,11 +45,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     padding: 20,
   },
-  loginButton: {
-    width: "100%",
-    height: 70,
-    backgroundColor: colors.primary,
-  },
   logo: {
     height: 100,
     width: 100,
@@ -53,11 +58,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 24,
     fontWeight: "bold",
-  },
-  registerButton: {
-    width: "100%",
-    height: 70,
-    backgroundColor: colors.secondary,
   },
 });
 
