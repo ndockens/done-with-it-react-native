@@ -13,7 +13,7 @@ function WelcomeScreen(props) {
     >
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source={require("../assets/logo-red.png")} />
-        <Text style={styles.logoText}>Sell What You Don't Need</Text>
+        <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonContainer}>
         <AppButton
@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
     top: 70,
     alignItems: "center",
   },
-  logoText: {
-    marginTop: 20,
+  tagline: {
+    paddingVertical: 20,
     fontSize: 24,
     fontWeight: "bold",
   },
