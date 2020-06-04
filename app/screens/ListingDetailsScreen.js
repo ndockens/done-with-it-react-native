@@ -1,55 +1,44 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
+import AppText from "../components/AppText";
+import ListItem from "../components/ListItem";
 
-import Card from "../components/Card";
+import colors from "../config/colors";
 
 function ListingDetailsScreen(props) {
   return (
-    <View style={styles.container}>
-      <Card
-        title="Red jacket for sale!"
-        subTitle="$100"
-        image={require("../assets/jacket.jpg")}
-      />
-      <View style={styles.userProfile}>
-        <Image
-          style={styles.userAvatar}
-          source={require("../assets/mosh.jpg")}
-        />
-        <View style={styles.userInfoContainer}>
-          <Text style={styles.userName}>Mosh Hamedani</Text>
-          <Text style={styles.userListings}>5 Listings</Text>
-        </View>
+    <View>
+      <Image style={styles.image} source={require("../assets/jacket.jpg")} />
+      <View style={styles.detailsContainer}>
+        <AppText style={styles.title}>Red jacket for sale!</AppText>
+        <AppText style={styles.price}>$100</AppText>
       </View>
+      <ListItem
+        userName="Mosh Hamedani"
+        profileImage={require("../assets/mosh.jpg")}
+        listingCount={5}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  detailsContainer: {
+    padding: 20,
   },
-  userAvatar: {
-    height: 60,
-    width: 60,
-    resizeMode: "contain",
-    borderRadius: 50,
+  image: {
+    width: "100%",
+    height: 300,
   },
-  userInfoContainer: {
-    paddingTop: 3,
-    paddingLeft: 8,
-  },
-  userListings: {
-    paddingTop: 5,
-    color: "gray",
-  },
-  userName: {
+  price: {
+    color: colors.secondary,
     fontWeight: "bold",
+    fontSize: 20,
+    marginVertical: 10,
   },
-  userProfile: {
-    flexDirection: "row",
-    marginTop: 20,
-    paddingHorizontal: 20,
+  title: {
+    fontSize: 24,
+    fontWeight: "500",
   },
 });
 
