@@ -5,7 +5,8 @@ import ViewImageScreen from "./app/screens/ViewImageScreen";
 import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
+import ListItemIcon from "./app/components/ListItemIcon";
 
 export default function App() {
-  return <MessagesScreen />;
+  return <ListItemIcon name="format-list-bulleted" />;
 }
