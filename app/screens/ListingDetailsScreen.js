@@ -13,11 +13,13 @@ function ListingDetailsScreen(props) {
         <AppText style={styles.title}>Red jacket for sale!</AppText>
         <AppText style={styles.price}>$100</AppText>
       </View>
-      <ListItem
-        userName="Mosh Hamedani"
-        profileImage={require("../assets/mosh.jpg")}
-        listingCount={5}
-      />
+      <View style={styles.userContainer}>
+        <ListItem
+          title="Mosh Hamedani"
+          subTitle="5 Listings"
+          image={require("../assets/mosh.jpg")}
+        />
+      </View>
     </View>
   );
 }
@@ -34,11 +36,14 @@ const styles = StyleSheet.create({
     color: colors.secondary,
     fontWeight: "bold",
     fontSize: 20,
-    marginVertical: 10,
+    marginTop: 10,
   },
   title: {
     fontSize: 24,
     fontWeight: "500",
+  },
+  userContainer: {
+    marginVertical: 40,
   },
 });
 

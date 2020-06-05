@@ -4,13 +4,13 @@ import AppText from "../components/AppText";
 
 import colors from "../config/colors";
 
-function ListItem({ userName, profileImage, listingCount }) {
+function ListItem({ title, subTitle, image }) {
   return (
     <View style={styles.container}>
-      <Image style={styles.profileImage} source={profileImage} />
+      <Image style={styles.image} source={image} />
       <View style={styles.detailsContainer}>
-        <AppText style={styles.userName}>{userName}</AppText>
-        <AppText style={styles.listings}>{listingCount} Listings</AppText>
+        <AppText style={styles.title}>{title}</AppText>
+        <AppText style={styles.subTitle}>{subTitle}</AppText>
       </View>
     </View>
   );
@@ -19,25 +19,22 @@ function ListItem({ userName, profileImage, listingCount }) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: 20,
+    paddingHorizontal: 20,
   },
   detailsContainer: {
-    paddingVertical: 3,
-    paddingHorizontal: 8,
+    padding: 4,
   },
-  listings: {
-    marginTop: 5,
-    color: colors.gray,
-    fontSize: 16,
+  image: {
+    height: 70,
+    width: 70,
+    borderRadius: 35,
+    marginRight: 10,
   },
-  profileImage: {
-    height: 60,
-    width: 60,
-    borderRadius: 50,
+  subTitle: {
+    color: colors.medium,
   },
-  userName: {
-    fontSize: 16,
-    fontWeight: "bold",
+  title: {
+    fontWeight: "500",
   },
 });
 
