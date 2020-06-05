@@ -9,16 +9,8 @@ import ListItem from "./app/components/ListItem";
 import Icon from "./app/components/Icon";
 import colors from "./app/config/colors";
 import Screen from "./app/components/Screen";
+import AccountScreen from "./app/screens/AccountScreen";
 
 export default function App() {
-  return (
-    <Screen>
-      <ListItem
-        title="title"
-        //subTitle="subtitle"
-        //image={require("./app/assets/mosh.jpg")}
-        ImageComponent={<Icon name="email" size={50} />}
-      />
-    </Screen>
-  );
+  return <AccountScreen />;
 }
