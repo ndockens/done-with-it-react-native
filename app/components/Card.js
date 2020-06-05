@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 
 import colors from "../config/colors";
 import AppText from "./AppText";
@@ -18,14 +18,13 @@ function Card({ title, subTitle, image }) {
 
 const styles = StyleSheet.create({
   card: {
-    height: 400,
-    width: "100%",
+    height: 300,
     backgroundColor: colors.white,
     borderRadius: 25,
     overflow: "hidden",
+    marginVertical: 10,
   },
   image: {
-    flex: 1,
     height: 200,
     width: "100%",
   },
@@ -34,8 +33,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   detailsContainer: {
-    flex: 0.3,
-    paddingHorizontal: 20,
+    padding: 20,
     justifyContent: "center",
   },
   title: {
