@@ -7,13 +7,13 @@ import colors from "../config/colors";
 function ViewImageScreen(props) {
   return (
     <View style={styles.container}>
-      <View style={styles.closeIconContainer}>
-        <MaterialCommunityIcons name="close" size={40} color={colors.white} />
+      <View style={styles.closeIcon}>
+        <MaterialCommunityIcons name="close" size={35} color={colors.white} />
       </View>
-      <View style={styles.deleteIconContainer}>
+      <View style={styles.deleteIcon}>
         <MaterialCommunityIcons
           name="trash-can-outline"
-          size={40}
+          size={35}
           color={colors.white}
         />
       </View>
@@ -27,7 +27,7 @@ function ViewImageScreen(props) {
 }
 
 const styles = StyleSheet.create({
-  closeIconContainer: {
+  closeIcon: {
     position: "absolute",
     top: 40,
     left: 30,
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.black,
   },
-  deleteIconContainer: {
+  deleteIcon: {
     position: "absolute",
     top: 40,
     right: 30,
