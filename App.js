@@ -8,16 +8,17 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import ListItem from "./app/components/ListItem";
 import Icon from "./app/components/Icon";
 import colors from "./app/config/colors";
+import Screen from "./app/components/Screen";
 
 export default function App() {
   return (
-    <SafeAreaView>
+    <Screen>
       <ListItem
         title="title"
         //subTitle="subtitle"
         //image={require("./app/assets/mosh.jpg")}
-        ImageComponent={<Icon name="email" size={35} color={colors.primary} />}
+        ImageComponent={<Icon name="email" size={50} />}
       />
-    </SafeAreaView>
+    </Screen>
   );
 }
