@@ -12,11 +12,13 @@ import Screen from "./app/components/Screen";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
 
 export default function App() {
   return (
     <Screen>
-      <AppTextInput placeholder="first name" icon="email" />
+      <AppPicker icon="apps" placeholder="Category" />
+      <AppTextInput placeholder="Email" icon="email" />
     </Screen>
   );
 }
