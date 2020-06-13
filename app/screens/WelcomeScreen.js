@@ -19,15 +19,13 @@ function WelcomeScreen(props) {
         <AppButton
           color="primary"
           onPress={() => console.log("Login button pressed")}
-        >
-          Login
-        </AppButton>
+          title="Login"
+        />
         <AppButton
           color="secondary"
           onPress={() => console.log("Register button pressed")}
-        >
-          Register
-        </AppButton>
+          title="Register"
+        />
       </View>
     </ImageBackground>
   );
