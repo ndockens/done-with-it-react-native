@@ -14,6 +14,7 @@ import ListingsScreen from "./app/screens/ListingsScreen";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
 
 const categories = [
   { label: "Furniture", value: 1 },
@@ -24,5 +25,5 @@ const categories = [
 export default function App() {
   const [category, setCategory] = useState(categories[0]);
 
-  return <LoginScreen></LoginScreen>;
+  return <RegisterScreen></RegisterScreen>;
 }
