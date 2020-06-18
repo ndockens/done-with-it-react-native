@@ -24,7 +24,6 @@ function RegisterScreen(props) {
           autoCapitalize="words"
           autoCorrect={false}
           icon="account"
-          keyboardType="default"
           name="name"
           placeholder="Name"
           textContentType="name"
