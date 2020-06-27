@@ -14,13 +14,20 @@ import Screen from "./Screen";
 import defaultStyles from "../config/styles";
 import AppPickerItem from "./AppPickerItem";
 
-function AppPicker({ icon, placeholder, items, selectedItem, onSelectItem }) {
+function AppPicker({
+  icon,
+  placeholder,
+  items,
+  selectedItem,
+  onSelectItem,
+  width,
+}) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
