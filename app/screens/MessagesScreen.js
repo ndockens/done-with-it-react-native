@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, FlatList, View } from "react-native";
+import { FlatList } from "react-native";
 
 import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
@@ -62,7 +62,5 @@ function MessagesScreen(props) {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default MessagesScreen;
