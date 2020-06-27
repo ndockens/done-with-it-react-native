@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity, StyleSheet } from "react-native";
 
-import AppText from "./AppText";
+import Text from "./Text";
 import Icon from "./Icon";
 
 function AppPickerGridItem({ item, onPress }) {
@@ -13,7 +13,7 @@ function AppPickerGridItem({ item, onPress }) {
         name={item.icon.name}
         size={70}
       />
-      <AppText style={styles.label}>{item.label}</AppText>
+      <Text style={styles.label}>{item.label}</Text>
     </TouchableOpacity>
   );
 }

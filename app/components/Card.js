@@ -2,19 +2,19 @@ import React from "react";
 import { View, StyleSheet, Image } from "react-native";
 
 import colors from "../config/colors";
-import AppText from "./AppText";
+import Text from "./Text";
 
 function Card({ title, subTitle, image }) {
   return (
     <View style={styles.card}>
       <Image style={styles.image} source={image} />
       <View style={styles.detailsContainer}>
-        <AppText numberOfLines={1} style={styles.title}>
+        <Text numberOfLines={1} style={styles.title}>
           {title}
-        </AppText>
-        <AppText numberOfLines={2} style={styles.subTitle}>
+        </Text>
+        <Text numberOfLines={2} style={styles.subTitle}>
           {subTitle}
-        </AppText>
+        </Text>
       </View>
     </View>
   );
