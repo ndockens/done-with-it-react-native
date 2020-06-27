@@ -12,6 +12,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppText from "./AppText";
 import Screen from "./Screen";
 import defaultStyles from "../config/styles";
+import AppPickerListView from "./AppPickerListView";
+import AppPickerGridView from "./AppPickerGridView";
 import AppPickerItem from "./AppPickerItem";
 
 function AppPicker({
@@ -20,6 +22,7 @@ function AppPicker({
   items,
   selectedItem,
   onSelectItem,
+  viewStyle = "list",
   width,
 }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -51,7 +54,7 @@ function AppPicker({
       <Modal visible={modalVisible} animationType="slide">
         <Screen>
           <Button title="Close" onPress={() => setModalVisible(false)} />
-          <FlatList
+          {/* <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
@@ -63,7 +66,26 @@ function AppPicker({
                 }}
               />
             )}
-          />
+          /> */}
+          {viewStyle === "list" ? (
+            <AppPickerListView
+              data={items}
+              keyExtractor={(item) => item.value.toString()}
+              onPress={(item) => {
+                setModalVisible(false);
+                onSelectItem(item);
+              }}
+            />
+          ) : (
+            <AppPickerGridView
+              data={items}
+              keyExtractor={(item) => item.value.toString()}
+              onPress={(item) => {
+                setModalVisible(false);
+                onSelectItem(item);
+              }}
+            />
+          )}
         </Screen>
       </Modal>
     </>
