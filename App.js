@@ -16,15 +16,17 @@ import Picker from "./app/components/Picker";
 import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
-
-const categories = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Appliances", value: 3 },
-];
+import ImageInput from "./app/components/ImageInput";
 
 export default function App() {
-  const [category, setCategory] = useState(categories[0]);
+  const [imageUri, setImageUri] = useState();
 
-  return <ListingEditScreen />;
+  return (
+    <Screen>
+      <ImageInput
+        imageUri={imageUri}
+        onChangeImage={(uri) => setImageUri(uri)}
+      />
+    </Screen>
+  );
 }
