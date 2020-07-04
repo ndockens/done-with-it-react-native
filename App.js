@@ -18,25 +18,15 @@ import RegisterScreen from "./app/screens/RegisterScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import ImageInput from "./app/components/ImageInput";
 import ImageInputList from "./app/components/ImageInputList";
-import FormImagePicker from "./app/components/forms/FormImagePicker";
-import { Form, FormField } from "./app/components/forms";
+import {
+  Form,
+  FormField,
+  FormImagePicker,
+  FormPicker,
+  SubmitButton,
+} from "./app/components/forms";
 import * as Yup from "yup";
 
 export default function App() {
-  const validationSchema = Yup.object().shape({
-    images: Yup.array().required().min(1).label("Images"),
-  });
-
-  return (
-    <Screen>
-      <Form
-        initialValues={{
-          images: [],
-        }}
-        validationSchema={validationSchema}
-      >
-        <FormImagePicker name="images" />
-      </Form>
-    </Screen>
-  );
+  return <ListingEditScreen />;
 }
