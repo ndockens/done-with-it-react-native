@@ -11,6 +11,7 @@ import {
   FormPicker,
   SubmitButton,
 } from "../components/forms";
+import useLocation from "../hooks/useLocation";
 import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
@@ -76,6 +77,8 @@ const categories = [
 ];
 
 function ListingEditScreen(props) {
+  const location = useLocation();
+
   return (
     <Screen style={styles.container}>
       <Form
