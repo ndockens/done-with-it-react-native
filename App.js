@@ -26,7 +26,14 @@ import {
   SubmitButton,
 } from "./app/components/forms";
 import * as Yup from "yup";
+import AuthNavigator from "./app/navigation/AuthNavigator";
+import { NavigationContainer } from "@react-navigation/native";
+import navigationTheme from "./app/navigation/navigationTheme";
 
 export default function App() {
-  return <ListingEditScreen />;
+  return (
+    <NavigationContainer theme={navigationTheme}>
+      <AuthNavigator />
+    </NavigationContainer>
+  );
 }

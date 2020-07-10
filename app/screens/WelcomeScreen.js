@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
 
 import Button from "../components/Button";
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground
       style={styles.background}
@@ -17,12 +17,12 @@ function WelcomeScreen(props) {
       <View style={styles.buttonContainer}>
         <Button
           color="primary"
-          onPress={() => console.log("Login button pressed")}
+          onPress={() => navigation.navigate("Login")}
           title="Login"
         />
         <Button
           color="secondary"
-          onPress={() => console.log("Register button pressed")}
+          onPress={() => navigation.navigate("Register")}
           title="Register"
         />
       </View>
