@@ -20,7 +20,7 @@ const initialListings = [
   },
 ];
 
-function ListingsScreen(props) {
+function ListingsScreen({ navigation }) {
   const [listings, setListings] = useState(initialListings);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -34,6 +34,7 @@ function ListingsScreen(props) {
             title={item.title}
             subTitle={"$" + item.price}
             image={item.image}
+            onPress={() => navigation.navigate("ListingDetails", item)}
           />
         )}
         refreshing={refreshing}
