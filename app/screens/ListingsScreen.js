@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, FlatList } from "react-native";
 
 import Screen from "../components/Screen";
 import Card from "../components/Card";
 import colors from "../config/colors";
+import listingsApi from "../api/listings";
 
 const initialListings = [
   {
@@ -21,8 +22,17 @@ const initialListings = [
 ];
 
 function ListingsScreen({ navigation }) {
-  const [listings, setListings] = useState(initialListings);
+  const [listings, setListings] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
+
+  useEffect(() => {
+    loadListings();
+  }, []);
+
+  const loadListings = async () => {
+    const response = await listingsApi.getListings();
+    setListings(response.data);
+  };
 
   return (
     <Screen style={styles.screen}>
@@ -33,7 +43,7 @@ function ListingsScreen({ navigation }) {
           <Card
             title={item.title}
             subTitle={"$" + item.price}
-            image={item.image}
+            imageUrl={item.images[0].url}
             onPress={() => navigation.navigate("ListingDetails", item)}
           />
         )}
