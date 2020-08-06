@@ -8,27 +8,17 @@ import Card from "../components/Card";
 import colors from "../config/colors";
 import listingsApi from "../api/listings";
 import Button from "../components/Button";
+import useApi from "../hooks/useApi";
 
 function ListingsScreen({ navigation }) {
-  const [listings, setListings] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const { request: loadListings, data: listings, error, loading } = useApi(
+    listingsApi.getListings
+  );
 
   useEffect(() => {
     loadListings();
   }, []);
-
-  const loadListings = async () => {
-    setLoading(true);
-    const response = await listingsApi.getListings();
-    setLoading(false);
-
-    if (!response.ok) return setError(true);
-
-    setError(false);
-    setListings(response.data);
-  };
 
   return (
     <Screen style={styles.screen}>
@@ -53,16 +43,7 @@ function ListingsScreen({ navigation }) {
           />
         )}
         refreshing={refreshing}
-        onRefresh={() => {
-          setListings([
-            {
-              id: 2,
-              title: "Couch in great condition",
-              subTitle: "1000",
-              image: require("../assets/couch.jpg"),
-            },
-          ]);
-        }}
+        onRefresh={loadListings}
       />
     </Screen>
   );
