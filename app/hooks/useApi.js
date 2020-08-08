@@ -11,7 +11,7 @@ export default useApi = (apiFunc) => {
     setLoading(false);
 
     if (!response.ok) {
-      console.log("Error: " + response.status + " - " + response.data.error);
+      console.log("Error: " + response.status + " - " + response.data?.error);
       return setError(true);
     }
 

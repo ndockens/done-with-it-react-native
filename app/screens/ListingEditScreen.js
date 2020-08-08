@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 
 import { StyleSheet } from "react-native";
@@ -11,6 +11,7 @@ import {
   FormPicker,
   SubmitButton,
 } from "../components/forms";
+import ProgressOverlay from "../components/ProgressOverlay";
 import useApi from "../hooks/useApi";
 import useLocation from "../hooks/useLocation";
 import colors from "../config/colors";
@@ -80,12 +81,29 @@ const categories = [
 
 function ListingEditScreen(props) {
   const location = useLocation();
-  const { request: postListing, data, error, loading } = useApi(
-    listingsApi.postListing
+  const { request: addListing, data, error, loading } = useApi(
+    listingsApi.addListing
   );
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [progressVisible, setProgressVisible] = useState(false);
+
+  const handleSubmit = (listing, { resetForm }) => {
+    setProgressVisible(true);
+    addListing({ ...listing, location }, (progress) =>
+      setUploadProgress(progress)
+    );
+
+    if (error) alert("There was a problem saving your data.");
+    else resetForm();
+  };
 
   return (
     <Screen style={styles.container}>
+      <ProgressOverlay
+        progress={uploadProgress}
+        onDone={() => setProgressVisible(false)}
+        visible={progressVisible}
+      />
       <Form
         initialValues={{
           title: "",
@@ -94,30 +112,7 @@ function ListingEditScreen(props) {
           description: "",
           images: [],
         }}
-        onSubmit={(values) => {
-          let data = new FormData();
-          data.append("title", values.title);
-          data.append("price", values.price);
-          data.append("categoryId", values.category.value);
-          data.append("description", values.description);
-          data.append("location", JSON.stringify(location));
-
-          for (let i = 0; i < values.images.length; i++) {
-            data.append("images", {
-              name: "image" + i,
-              type: "image/jpeg",
-              uri: values.images[i],
-            });
-          }
-
-          const config = {
-            onUploadProgress: (progressEvent) =>
-              console.log(progressEvent.loaded / progressEvent.total),
-          };
-
-          postListing(data, config);
-          if (error) alert("There was a problem saving your data.");
-        }}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
