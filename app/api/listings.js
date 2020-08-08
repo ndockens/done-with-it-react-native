@@ -4,4 +4,6 @@ const endpoint = "/listings";
 
 const getListings = () => client.get(endpoint);
 
-export default { getListings };
+const postListing = (data, config = null) => client.post(endpoint, data);
+
+export default { getListings, postListing };
