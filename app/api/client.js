@@ -8,15 +8,12 @@ export default apiClient = create({
 
 const get = apiClient.get;
 apiClient.get = async (url, params, axiosConfig) => {
-  console.log("Calling API");
   const response = await get(url, params, axiosConfig);
 
   if (response.ok) {
-    console.log("Response is OK");
     cache.store(url, response.data);
     return response;
   }
-  console.log("Response not OK");
 
   const data = await cache.get(url);
   return data ? { ok: true, data } : response;
