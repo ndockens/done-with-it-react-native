@@ -6,6 +6,7 @@ import * as Permissions from "expo-permissions";
 
 import routes from "./routes";
 import expoPushTokensApi from "../api/expoPushTokens";
+import navigation from "./rootNavigation";
 
 import ListingEditScreen from "../screens/ListingEditScreen";
 import AccountNavigator from "./AccountNavigator";
@@ -15,6 +16,10 @@ import NewListingButton from "./NewListingButton";
 function AppNavigator(props) {
   useEffect(() => {
     registerForPushNotifications();
+
+    Notifications.addListener((notification) => {
+      navigation.navigate(routes.ACCOUNT);
+    });
   }, []);
 
   const registerForPushNotifications = async () => {
