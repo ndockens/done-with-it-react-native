@@ -4,7 +4,7 @@ import cache from "../utilities/cache";
 import authStorage from "../auth/storage";
 
 export default apiClient = create({
-  baseURL: "http://192.168.1.79:9000/api",
+  baseURL: "http://192.168.1.69:9000/api",
 });
 
 apiClient.addAsyncRequestTransform(async (request) => {
