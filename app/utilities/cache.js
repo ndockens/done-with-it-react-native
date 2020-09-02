@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-community/async-storage";
-import moment from "moment";
+import dayjs from "dayjs";
 
 const expiryMinutes = 5;
 
@@ -34,9 +34,9 @@ const get = async (key) => {
 };
 
 const isExpired = (item) => {
-  const now = moment(Date.now());
-  const storedTime = moment(item.timestamp);
-  return now.diff(storedTime, "minutes") > expiryMinutes;
+  const now = dayjs();
+  const storedTime = dayjs(item.timestamp);
+  return now.diff(storedTime, "minute") > expiryMinutes;
 };
 
 export default {
